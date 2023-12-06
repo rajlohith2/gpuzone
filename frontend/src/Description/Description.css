@@ -1,0 +1,79 @@
+/* Description.css */
+
+:root {
+  --primary-color: #1a1a1a; /* Primary dark color */
+  --secondary-color: #333; /* Secondary color for card backgrounds */
+  --text-color: #fff; /* White text color */
+  --accent-color: #007bff; /* Accent color for links and buttons */
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: "Arial", sans-serif;
+}
+
+.details-page {
+  max-width: 1000px;
+  background-color: var(--secondary-color);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--text-color);
+}
+
+.details-page h1,
+.details-page p,
+.details-page h2,
+.details-page a {
+  margin-bottom: 1em;
+}
+
+.details-page h1 {
+  font-size: 2em;
+}
+
+.details-page p {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.details-page img {
+  width: 25%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.details-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.details-page li {
+  background: var(--primary-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.details-page a {
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.details-page a:hover {
+  background-color: darken(var(--accent-color), 10%);
+}
+
+/* Responsive design - Consider adding media queries if needed */
+@media (max-width: 768px) {
+  .details-page {
+    margin: 10px;
+    padding: 15px;
+  }
+}

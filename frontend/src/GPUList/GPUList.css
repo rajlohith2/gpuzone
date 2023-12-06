@@ -1,0 +1,9 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(353px, 1fr)
+  ); /* Adjust minmax values as needed */
+  gap: 20px; /* Adjust the gap size as needed */
+  padding: 20px; /* Optional padding */
+}
