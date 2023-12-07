@@ -8,7 +8,7 @@ import requests
 import csv
 from io import StringIO
 
-client = MongoClient("mongodb+srv://rajlohith2:gpuzone@cluster0.avh79ax.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb://34.125.160.112/gpuzone")
 db = client['gpuzone']
 gpu_collection = db['gpu']
 
@@ -36,7 +36,16 @@ if response.status_code == 200:
 else:
     print(f"Failed to download CSV: Status code {response.status_code}")
 
-gpu_list = gpu_list[28:]
+unique_values = set()
+unique_gpus = []
+for d in gpu_list:
+    # Check if the key exists in the dictionary
+    if 'url' in d:
+        value = d['url']
+        # Add the dictionary to the result if the value is unique
+        if value not in unique_values:
+            unique_gpus.append(d)
+            unique_values.add(value)
 proxy_list = []
 
 # Open the file and read each line
@@ -72,7 +81,7 @@ def create_firefox_driver_with_authenticated_proxy():
 
     return driver
 previous_url = None
-for gpu in gpu_list:
+for gpu in unique_gpus:
     count = 0
     print("Scraping " + gpu['url'])
     if previous_url == gpu['url'] and success:
